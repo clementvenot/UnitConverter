@@ -1,6 +1,6 @@
 class LengthConverter:
-    def __init__(self,LengthA,LengthB, value):
-        self.tab = {
+    def __init__(self):
+        tab = {
             "nm": 0.000000001,
             "µm": 0.000001,
             "mm": 0.001,
@@ -20,9 +20,7 @@ class LengthConverter:
             "ly": 9.4607 * 10**15,
             "pc": 3.0857 * 10**16
         }
-        self.value = value
-        self.LengthA =LengthA
-        self.LengthB =LengthB
+
 
     def convert_to_m(self, unit, value):
         return value * self.tab[unit]
