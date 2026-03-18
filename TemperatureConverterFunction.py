@@ -1,0 +1,34 @@
+class Temperature:
+    def __init__(self, value, unit):
+        self.value = float(value)
+        self.unit = unit.lower()
+
+    # --- Conversions vers Celsius ---
+    def to_celsius(self):
+        if self.unit in ["c", "celsius"]:
+            return self.value
+        elif self.unit in ["f", "fahrenheit"]:
+            return (self.value - 32) * 5/9
+        elif self.unit in ["k", "kelvin"]:
+            return self.value - 273.15
+        else:
+            raise ValueError("Unité source inconnue")
+
+    # --- Conversions depuis Celsius vers n’importe quelle unité ---
+    @staticmethod # Note: Cette méthode est statique car elle ne dépend pas de l'état de l'instance
+    def from_celsius(celsius_value, target_unit):
+        target_unit = target_unit.lower()
+
+        if target_unit in ["c", "celsius"]:
+            return celsius_value
+        elif target_unit in ["f", "fahrenheit"]:
+            return celsius_value * 9/5 + 32
+        elif target_unit in ["k", "kelvin"]:
+            return celsius_value + 273.15
+        else:
+            raise ValueError("Unité cible inconnue")
+
+    # --- Fonction principale de conversion ---
+    def convert_to(self, target_unit):
+        celsius = self.to_celsius()
+        return round(Temperature.from_celsius(celsius, target_unit), 2)
