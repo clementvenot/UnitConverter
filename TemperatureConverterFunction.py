@@ -1,9 +1,10 @@
 class Temperature:
+    
     def __init__(self, value, unit):
         self.value = float(value)
         self.unit = unit.lower()
 
-    # --- Conversions vers Celsius ---
+    # --- Conversions en Celsius ---
     def to_celsius(self):
         if self.unit in ["c", "celsius"]:
             return self.value
@@ -14,8 +15,8 @@ class Temperature:
         else:
             raise ValueError("Unité source inconnue")
 
-    # --- Conversions depuis Celsius vers n’importe quelle unité ---
-    @staticmethod # Note: Cette méthode est statique car elle ne dépend pas de l'état de l'instance
+    # --- Conversions depuis Celsius ---
+    @staticmethod # staticmethod car cette fonction n’a pas besoin d’accéder à l’instance (self)
     def from_celsius(celsius_value, target_unit):
         target_unit = target_unit.lower()
 
