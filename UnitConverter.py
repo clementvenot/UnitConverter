@@ -1,4 +1,7 @@
 from TemperatureConverterFunction import Temperature
+from CurrencyConverterFunction import Currency
+from WeightConverterFunction import Weight
+from DistanceConverterFunction import Distance
 from tkinter import *
 
 fenetre = Tk()
@@ -9,6 +12,9 @@ fenetre.minsize(width=500, height=300)
 # ------------------ DATA ------------------
 units = {
     "Temperature": ["celsius", "fahrenheit", "kelvin"],
+    "Currency": list(Currency.rates.keys()),
+    "Distance": list(Distance().tab.keys()),
+    "Weight": list(Weight().tab.keys()),
 }
 
 
@@ -48,6 +54,15 @@ def convert():
         if category == "Temperature":
             temp = Temperature(value, from_u)
             result = temp.convert_to(to_u)
+        
+        elif category == "Currency":
+            curr = Currency(value, from_u)
+            result = curr.convert_to(to_u)
+        
+        elif category == "Distance":
+            dist = Distance()
+            result = dist.convert(from_u, value, to_u)
+        
         else:
             result = "Not implemented"
 
