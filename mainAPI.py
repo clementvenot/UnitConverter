@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from CurrencyConverterFunction import Currency
 from TemperatureConverterFunction import Temperature
 from DistanceConverterFunction import Distance
-from WeightConverterFunction import WeightConverter
+from WeightConverterFunction import Weight
 
 app = FastAPI(
     title="Conversion API",
@@ -86,7 +86,7 @@ def convert_distance(data: DistanceRequest):
 @app.post("/convert/weight")
 def convert_weight(data: WeightRequest):
     try:
-        w = WeightConverter()
+        w = Weight()
         result = w.convert(data.unit, data.value, data.target)
         return {
             "input": f"{data.value} {data.unit}",
