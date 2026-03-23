@@ -26,4 +26,4 @@ class Weight:
 
     def convert(self, from_unit, value, to_unit):
         value_in_g = self.convert_to_g(from_unit, value)
-        return round(self.convert_from_g(to_unit, value_in_g), 4)
+        return self.convert_from_g(to_unit, value_in_g)

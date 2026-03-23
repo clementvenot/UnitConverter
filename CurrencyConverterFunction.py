@@ -31,4 +31,4 @@ class Currency:
     # Conversion principale
     def convert_to(self, target_unit):
         usd_value = self.to_usd()
-        return round(Currency.from_usd(usd_value, target_unit), 2)
+        return Currency.from_usd(usd_value, target_unit)

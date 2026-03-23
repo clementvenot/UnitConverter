@@ -32,4 +32,4 @@ class Temperature:
     # --- Fonction principale de conversion ---
     def convert_to(self, target_unit):
         celsius = self.to_celsius()
-        return round(Temperature.from_celsius(celsius, target_unit), 2)
+        return Temperature.from_celsius(celsius, target_unit)
