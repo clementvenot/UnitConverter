@@ -1,8 +1,8 @@
-from WeightConverterFunction import weightConverter
+from WeightConverterFunction import Weight
 
 if __name__ == "__main__":
 
-    converter = weightConverter()
+    converter = Weight()
 
     #---------------------------
     #--- Cas d’erreur ----------
