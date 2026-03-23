@@ -1,26 +1,28 @@
 class Distance:
     def __init__(self):
-        tab = {
-            "nm": 0.000000001,
-            "µm": 0.000001,
-            "mm": 0.001,
-            "cm": 0.01,
-            "dm": 0.1,
-            "m": 1,
-            "dam": 10,
-            "hm": 100,
-            "km": 1000,
-            "in": 0.0254,
-            "ft": 0.3048,
-            "yd": 0.9144,
-            "mi": 1609.344,
-            "nmi": 1852,
-            "ftm": 1.8288,
-            "UA": 149597870700,
-            "ly": 9.4607 * 10**15,
-            "pc": 3.0857 * 10**16
-        }
+        
+        self.tab = {
+            "nm": 0.000000001,        # nanomètre
+            "µm": 0.000001,           # micromètre
+            "mm": 0.001,              # millimètre
+            "cm": 0.01,               # centimètre
+            "dm": 0.1,                # décimètre
+            "m": 1,                   # mètre
+            "dam": 10,                # décamètre
+            "hm": 100,                # hectomètre
+            "km": 1000,               # kilomètre
 
+            "in": 0.0254,             # inch / pouce
+            "ft": 0.3048,             # pied (foot)
+            "yd": 0.9144,             # yard
+            "mi": 1609.344,           # mile
+            "nmi": 1852,              # mile nautique
+            "ftm": 1.8288,            # fathom (brasse)
+
+            "UA": 149_597_870_700,    # unité astronomique
+            "ly": 9.4607 * 10**15,    # année-lumière
+            "pc": 3.0857 * 10**16     # parsec
+        }
 
     def convert_to_m(self, unit, value):
         return value * self.tab[unit]
