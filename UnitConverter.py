@@ -5,7 +5,7 @@ from DistanceConverterFunction import Distance
 from tkinter import *
 
 fenetre = Tk()
-fenetre.title("tutorial")
+fenetre.title("UnitConverter")
 fenetre.minsize(width=500, height=300)
 
 
