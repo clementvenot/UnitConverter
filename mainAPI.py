@@ -1,12 +1,15 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+
 from CurrencyConverterFunction import Currency
 from TemperatureConverterFunction import Temperature
+from DistanceConverterFunction import Distance
+from WeightConverterFunction import WeightConverter
 
 app = FastAPI(
     title="Conversion API",
-    description="API permettant la conversion de devises et de températures.",
-    version="1.0.0"
+    description="API permettant la conversion de devises, températures, distances et poids.",
+    version="2.0.0"
 )
 
 # -----------------------------
@@ -19,6 +22,16 @@ class CurrencyRequest(BaseModel):
     target: str
 
 class TemperatureRequest(BaseModel):
+    value: float
+    unit: str
+    target: str
+
+class DistanceRequest(BaseModel):
+    value: float
+    unit: str
+    target: str
+
+class WeightRequest(BaseModel):
     value: float
     unit: str
     target: str
@@ -55,4 +68,34 @@ def convert_temperature(data: TemperatureRequest):
     except ValueError as e:
         return {"error": str(e)}
 
-# Pour lancer l’API : uvicorn mainAPI:app --reload
+
+@app.post("/convert/distance")
+def convert_distance(data: DistanceRequest):
+    try:
+        d = Distance()
+        result = d.convert(data.unit, data.value, data.target)
+        return {
+            "input": f"{data.value} {data.unit}",
+            "converted_to": data.target,
+            "result": result
+        }
+    except KeyError:
+        return {"error": "Unité inconnue."}
+
+
+@app.post("/convert/weight")
+def convert_weight(data: WeightRequest):
+    try:
+        w = WeightConverter()
+        result = w.convert(data.unit, data.value, data.target)
+        return {
+            "input": f"{data.value} {data.unit}",
+            "converted_to": data.target,
+            "result": result
+        }
+    except KeyError:
+        return {"error": "Unité inconnue."}
+
+
+# Pour lancer l’API : 
+# uvicorn mainAPI:app --reload

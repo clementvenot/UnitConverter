@@ -32,4 +32,3 @@ class Distance:
 
     def convert(self, from_unit, value, to_unit):
         value_in_m = self.convert_to_m(from_unit, value)
-        return round(self.convert_from_m(to_unit, value_in_m), 2)
