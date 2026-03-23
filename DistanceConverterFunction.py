@@ -31,11 +31,3 @@ class LengthConverter:
     def convert(self, from_unit, value, to_unit):
         value_in_m = self.convert_to_m(from_unit, value)
         return self.convert_from_m(to_unit, value_in_m)
-
-
-# Exemple d'utilisation
-converter = LengthConverter()
-
-print(converter.convert_to_m("ft", 40))
-print(converter.convert_from_m("ft", 40))
-print(converter.convert("dm", 400, "ft"))
