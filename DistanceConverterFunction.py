@@ -1,4 +1,4 @@
-class LengthConverter:
+class Distance:
     def __init__(self):
         tab = {
             "nm": 0.000000001,
