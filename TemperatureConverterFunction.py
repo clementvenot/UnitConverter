@@ -16,7 +16,7 @@ class Temperature:
             raise ValueError("Unité source inconnue")
 
     # --- Conversions depuis Celsius ---
-    @staticmethod # staticmethod car cette fonction n’a pas besoin d’accéder à l’instance (self)
+    @staticmethod 
     def from_celsius(celsius_value, target_unit):
         target_unit = target_unit.lower()
 
