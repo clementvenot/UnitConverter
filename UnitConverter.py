@@ -62,6 +62,10 @@ def convert():
         elif category == "Distance":
             dist = Distance()
             result = dist.convert(from_u, value, to_u)
+
+        elif category == "Weight":
+            w = Weight()
+            result = w.convert(from_u, value, to_u)
         
         else:
             result = "Not implemented"
